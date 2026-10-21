@@ -1,7 +1,6 @@
-import React from 'react'
-function Products() {
+function Product() {
   return (
     <div>ShopKart Products</div>
   )
 }
-export default Products
+export default Product
