@@ -1,12 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import "./Navbar.css";
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+    };
+
+    const isActive = (path) => {
+        return location.pathname === path;
     };
 
     return (
@@ -51,11 +56,21 @@ function Navbar() {
                     {/* Navigation */}
                     <div className={`navbar-collapse ${isMenuOpen ? 'active' : ''}`} id="shopKartNavbar">
                         <ul className="navbar-nav main-nav">
-                            <li className="nav-item"><Link className="nav-link active" to="/">Home</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/product">Products</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="#">Deals</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="#">About Us</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="#">Contact</Link></li>
+                            <li className="nav-item">
+                                <Link className={`nav-link ${isActive('/') ? 'active' : ''}`} to="/">Home</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className={`nav-link ${isActive('/product') ? 'active' : ''}`} to="/product">Products</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="#">Deals</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="#">About Us</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="#">Contact</Link>
+                            </li>
                         </ul>
 
                         {/* Search */}

@@ -33,6 +33,7 @@
   background-color: white;
   padding: 10px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .navbar .container-fluid {
@@ -292,9 +293,24 @@
 }
 
 @media (max-width: 991px) {
+  .top-bar {
+    display: none;
+  }
+
+  .navbar {
+    padding: 12px 0;
+    min-height: 60px;
+  }
+
+  .navbar .container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
   .category-dropdown {
-    margin-left: auto;
-    margin-right: 15px;
+    display: none;
   }
 
   .navbar-collapse {
@@ -303,8 +319,10 @@
     align-items: flex-start;
     width: 100%;
     margin-top: 1rem;
-    padding-top: 1rem;
+    padding: 1rem 20px;
     border-top: 1px solid #e1e5e9;
+    background: white;
+    z-index: 1000;
   }
 
   .navbar-collapse.active {
@@ -315,28 +333,69 @@
     flex-direction: column;
     width: 100%;
     margin-left: 0;
-    margin-top: 15px;
-    gap: 5px;
+    margin-top: 0;
+    gap: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 16px 0;
+    font-size: 15px;
+    width: 100%;
   }
 
   .search-box {
     width: 100%;
-    margin: 15px 0;
+    margin: 20px 0;
+    order: 3;
+  }
+
+  .search-box input {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .search-btn {
+    width: 50px;
+    height: 42px;
   }
 
   .nav-actions {
     margin-left: 0;
+    margin-top: 15px;
+    order: 4;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 30px;
+  }
+
+  .nav-icon {
+    font-size: 1.8rem;
   }
 
   .navbar-toggler {
     display: block;
+    padding: 0.75rem;
+  }
+
+  .navbar-toggler-icon {
+    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 576px) {
-  .top-bar .container-fluid {
-    padding-left: 15px;
-    padding-right: 15px;
+  .navbar {
+    padding: 10px 0;
+    min-height: 56px;
   }
 
   .navbar .container-fluid {
@@ -344,8 +403,49 @@
     padding-right: 15px;
   }
 
-  .category-btn {
-    font-size: 12px;
-    padding: 0 10px;
+  .shopkart-logo {
+    width: 120px;
+  }
+
+  .navbar-toggler {
+    padding: 0.5rem;
+  }
+
+  .navbar-toggler-icon {
+    font-size: 1.6rem;
+  }
+
+  .nav-link {
+    padding: 14px 15px;
+    font-size: 14px;
+  }
+
+  .search-box {
+    height: 40px;
+  }
+
+  .search-box input {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .search-btn {
+    width: 45px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .nav-actions {
+    gap: 25px;
+  }
+
+  .nav-icon {
+    font-size: 1.6rem;
+  }
+
+  .cart-count {
+    width: 15px;
+    height: 15px;
+    font-size: 8px;
   }
 }
