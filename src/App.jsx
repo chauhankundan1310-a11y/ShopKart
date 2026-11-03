@@ -8,6 +8,12 @@ import Practice from "./pages/Practice";
 import Register from "./pages/Register";
 import React, { useState, useReducer } from "react";
 import Navbar from "./components/Navbar";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
+import ProductDetails from "./pages/ProductDetails";
+import NotFound from "./pages/NotFound";
+
 
 function cartReducer(state, action) {
   switch (action.type) {
@@ -82,12 +88,19 @@ function App() {
       <Navbar userName={userName} cart={cart} />
       <Routes>
         <Route path="/" element={<Home Student FullName="Gopal" Age={30} />} />
-        <Route path="/product" element={<Product dispatch={dispatch}/>} />
-        <Route path="/cart" element={<Cart cart={cart} dispatch={dispatch}/>} />
+        <Route path="/product" element={<Product dispatch={dispatch} />} />
+        
+        <Route path="/cart" element={<Cart cart={cart} dispatch={dispatch} />} />
         <Route path="/login" element={<Login setUserName={setUserName} />} />
         <Route path="/register" element={<Register setUserName={setUserName} />} />
         <Route path="/practice" element={<Practice />} />
+        <Route path="/about" element={<About setUserName={setUserName} />} />
+        <Route path="/contact" element={<Contact setUserName={setUserName} />} />
+        <Route path="/product/:id" element={<ProductDetails dispatch={dispatch} />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
+
+      <Footer />
     </>
   );
 
