@@ -1,8 +1,11 @@
 import React from 'react'
+import {useContext} from "react"
 
 import './Home.css'
+import { ShopKartContext } from "../context/ShopKartContext";
 
 function Home() {
+  const { setUserName } = useContext(ShopKartContext);
 
   const products = [
   
@@ -239,4 +242,4 @@ function Home() {
   )
 }
 
-export default Home;
+export default Home

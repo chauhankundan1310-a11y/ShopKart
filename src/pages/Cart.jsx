@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Cart.css";
+import { ShopKartContext } from "../context/ShopKartContext";
 
-function Cart({ cart, dispatch }) {
-const navigate = useNavigate();
+function Cart() {
+  const { cart, dispatch } = useContext(ShopKartContext);
+  const navigate = useNavigate();
   const [orderPlaced, setOrderPlaced] = useState(false);
 
 

@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./Navbar.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { ShopKartContext } from "../context/ShopKartContext";
 
-function Navbar({ userName, cart = [] }) {
+function Navbar() {
+    const { userName, cart} = useContext(ShopKartContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
